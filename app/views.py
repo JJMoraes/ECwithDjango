@@ -109,13 +109,18 @@ class Users(View):
             return render(request, 'auth/users.html', {'users':users})
         return redirect('login')
 
+
 def trashUser(request, id):
-    user = User.objects.filter(id=id).first()
-    user.delete()
-    return redirect('users')
+    if request.user.is_authenticated:
+        user = User.objects.filter(id=id).first()
+        user.delete()
+        return redirect('users')
+    return redirect('login')
 
 
 def trashArticle(request, id):
-    article = Post.objects.filter(id=id).first()
-    article.delete()
-    return redirect('articles')
+    if request.user.is_authenticated:
+        article = Post.objects.filter(id=id).first()
+        article.delete()
+        return redirect('articles')
+    return redirect('login')
