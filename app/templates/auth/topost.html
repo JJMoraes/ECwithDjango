@@ -1,0 +1,16 @@
+{% extends "auth/base_login.html" %}
+
+
+{% block main %}
+<main id="mainNormal" class="mainPrincipal">
+    <article class="contatos">
+        <h1>Escrever</h1>
+        <form method="POST" enctype="multipart/form-data" class="post-form">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">Enviar</button>
+        </form>
+    </article>
+</main>
+{% endblock %}
+

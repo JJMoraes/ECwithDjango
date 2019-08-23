@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <main id="mainNormal" class="mainPrincipal">
+            <section>
+                <div>
+                    <p>Principal</p>
+                    <p class="desenho"></p>
+                </div>
+                <article class="principal">
+                    <a href='article/{{ first.id }}'><img src="{{ first.image.name }}" alt="{{ first.subtitle }}"></a>
+                    <a href="article/{{ first.id }}"><h1>{{ first.title }}</h1></a>
+                    <p class="nomeDataPrincipal">{{ first.author }} --- <i>{{ first.date }}</i></p>
+                    <p class="intro">{{ first.lide }}</p>
+                </article>
+                {% for post in posts %}
+                    <article class="secundarios">
+                        <a href="article/{{ post.id }}"><img src="{{ post.image.name }}" alt="{{ post.subtitle }}"></a>
+                        <a href="article/{{ post.id }}"><h1>{{ post.title }}</h1></a>
+                        <p class="nomeDataSecundario">{{ post.author }} --- <i>{{ post.date }}</i></p>
+                    </article>
+                {% endfor %}
+                <br>
+                <hr>
+            </section>
+    </main>
+{% endblock %}

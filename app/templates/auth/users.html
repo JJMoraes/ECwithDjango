@@ -1,0 +1,30 @@
+{% extends "auth/base_login.html" %}
+{% load static %}
+
+{% block main %}
+<main id="mainNormal" class="mainPrincipal">
+    <article class="contatos">
+        <h1>Usuários</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Deletar</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td><a href="/user/{{ user.id }}">{{ user.username }}</a></td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td><a href="/trashUser/{{ user.id }}"><img src="{% static 'icones/trash.png' %}"></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+</main>
+{% endblock %}

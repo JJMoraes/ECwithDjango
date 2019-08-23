@@ -1,0 +1,30 @@
+{% extends "auth/base_login.html" %}
+{% load static %}
+
+{% block main %}
+<main id="mainNormal" class="mainPrincipal">
+    <article class="contatos">
+        <h1>Artigos</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Data</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Deletar</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td><a href="/article/{{ article.id }}">{{ article.title }}</a></td>
+                        <td>{{ article.date }}</td>
+                        <td>{{ article.name }}</td>
+                        <td><a href="/trashArticle/{{ article.id }}"><img src="{% static 'icones/trash.png' %}"></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </article>
+</main>
+{% endblock %}

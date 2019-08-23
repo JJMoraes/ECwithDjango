@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block menu %}
+<div id="menuEscondido">
+    <a href="#" onclick="menuAparece()"><img src="{% static 'icones/menu.png' %}" alt="Ícone de Menu"></a>
+    <form method="get" action="paginaBusca.html">
+        <input type="text" name="textoBusca" id="campoBusca" class="buscaEsconde" placeholder="Digite sua Busca...">
+        <a href="#" onclick="buscaExpande()"><img src="{% static 'icones/lupa.png' %}"></a>
+    </form>
+</div>
+<div id="container">
+    <section id="menuLateral" class="menuLateral menuSome">
+        <nav>
+            <p>Funções</p>
+            <ul>
+                <li><a href='/profile'>Meu Perfil</a></li>
+                    <li><a href='/articles'>Artigos</a></li>
+                    <li><a href='/topost'>Escrever</a></li>
+                    <li><a href="/users">Usuários</a></li>
+            </ul>
+        </nav>
+    </section>
+    {% endblock %}
+{% block main %}
+
+{% endblock %}

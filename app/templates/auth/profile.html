@@ -1,0 +1,21 @@
+{% extends "auth/base_login.html" %}
+{% load static %}
+
+{% block main %}
+    <main id="mainNormal" class="mainPrincipal">
+        <article class="link">
+            <h1>Meu Perfil</h1>
+        <a href="profile/" class="linkImagem"><img src="/static/{{ profile.image.name }}" alt="Avatar for {{ request.user.last_name }}"></a>
+            <ul style="display: inline; list-style-type: none">
+                <li>Username: {{ request.user.username }}</li>
+                <li>First Name: {{ request.user.first_name }}</li>
+                <li>Last Name: {{ request.user.last_name }}</li>
+                <li>Email: {{ request.user.email }}</li>
+            </ul>
+            <p class="intro">Sobre mim: {{ profile.about_me }}</p>
+            <br>
+            <hr>
+            <br>
+        </article>
+    </main>
+{% endblock %}
